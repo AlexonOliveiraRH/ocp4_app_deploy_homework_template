@@ -28,7 +28,7 @@ spec:
       containers:
       - env:
         - name: VERSION
-          value: 0.0 (tasks-dev)
+          value: '${devTag} (tasks-dev)'
         image: image-registry.openshift-image-registry.svc:5000/GUID-tasks-dev/GUID-tasks:0.0-0
         imagePullPolicy: IfNotPresent
         livenessProbe:
