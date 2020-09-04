@@ -1,0 +1,17 @@
+apiVersion: v1
+items:
+- kind: "BuildConfig"
+  apiVersion: "v1"
+  metadata:
+    name: "tasks-pipeline"
+  spec:
+    source:
+      type: "Git"
+      git:
+        uri: "https://homework-gitea.apps.shared-na4.na4.openshift.opentlc.com/alolivei-redhat.com/8175.git"
+    strategy:
+      type: "JenkinsPipeline"
+      jenkinsPipelineStrategy:
+        jenkinsfilePath: "openshift-tasks/Jenkinsfile"
+kind: List
+metadata: {}

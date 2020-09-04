@@ -40,27 +40,17 @@ USER 1001' --name=jenkins-agent-appdev -n ${GUID}-jenkins
 oc create secret generic gitea-secret --from-literal=username=user --from-literal=password=password -n ${GUID}-jenkins
 oc set build-secret --source bc/tasks-pipeline gitea-secret -n ${GUID}-jenkins
 
+#Set correct permissions
+
+oc policy add-role-to-user edit system:serviceaccount:${GUID}-jenkins:jenkins -n ${GUID}-tasks-dev
+oc policy add-role-to-user edit system:serviceaccount:${GUID}-jenkins:jenkins -n ${GUID}-tasks-prod
+oc policy add-role-to-group system:image-puller system:serviceaccounts ${GUID}-tasks-prod -n ${GUID}-tasks-dev
+
 # Create pipeline build config pointing to the ${REPO} with contextDir `openshift-tasks`
 # Build config has to be called 'tasks-pipeline'.
 # Make sure you use your secret to access the repository
 
-echo "apiVersion: v1
-items:
-- kind: "BuildConfig"
-  apiVersion: "v1"
-  metadata:
-    name: "tasks-pipeline"
-  spec:
-    source:
-      type: "Git"
-      git:
-        uri: "${REPO}"
-    strategy:
-      type: "JenkinsPipeline"
-      jenkinsPipelineStrategy:
-        jenkinsfilePath: "openshift-tasks/Jenkinsfile"
-kind: List
-metadata: []" | oc apply -f - -n ${GUID}-jenkins
+oc create -f ./manifests/tasks-bc-task-pipeline.yaml -n ${GUID}-jenkins
 
 # Set up ConfigMap with Jenkins Agent definition
 oc create -f ./manifests/agent-cm.yaml -n ${GUID}-jenkins
