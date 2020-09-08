@@ -151,8 +151,8 @@ pipeline {
       }
     }
 
-   // Run Integration Tests in the Development Environment.
-   stage('Integration Tests') {
+    // Run Integration Tests in the Development Environment.
+    stage('Integration Tests') {
      steps {
        echo "Running Integration Tests"
        script {
@@ -179,7 +179,7 @@ pipeline {
          }
        }
      }
-   }
+    }
 
     // Copy Image to Nexus Container Registry
     stage('Copy Image to Nexus Container Registry') {
