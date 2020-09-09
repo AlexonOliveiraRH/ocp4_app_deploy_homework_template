@@ -129,7 +129,7 @@ pipeline {
                 // Recreate the Config Map which contains the users for the Tasks application
                 // (just in case the properties files changed in the latest commit)
                 openshift.selector('configmap', 'tasks-config').delete()
-                def configmap = openshift.create('configmap', 'tasks-config', '--from-file=./configuration/application-users.properties', '--from-file=./configuration/application-roles.properties' )
+                def configmap = openshift.create('configmap', 'tasks-config', '--from-file=./configuration/application-users.properties', '--from-file=./configuration/application-roles.properties')
 
                 // Deploy the development application.
                 openshift.selector("dc", "tasks").rollout().latest();
@@ -187,7 +187,7 @@ pipeline {
       steps {
         echo "Copy image to Nexus Container Registry"
         script {
-          sh "skopeo copy --src-tls-verify=false --dest-tls-verify=false --src-creds openshift:\$(oc whoami -t) --dest-creds admin:app_deploy docker://image-registry.openshift-image-registry.svc.cluster.local:5000/${devProject}/${imageName}:${devTag} docker://homework-nexus-registry.gpte-hw-cicd.svc.cluster.local:5000/${imageName}:${devTag}"
+          sh "skopeo copy --src-tls-verify=false --dest-tls-verify=false --src-creds openshift:\$(oc whoami -t) --dest-creds admin:redhat docker://image-registry.openshift-image-registry.svc.cluster.local:5000/${devProject}/${imageName}:${devTag} docker://homework-nexus-registry.gpte-hw-cicd.svc.cluster.local:5000/${imageName}:${devTag}"
           // Tag the built image with the production tag.
           openshift.withCluster() {
             openshift.withProject("${prodProject}") {
@@ -223,7 +223,7 @@ pipeline {
 
               // Recreate Config Map in change config files changed in the source
               openshift.selector("configmap", "${destApp}-config").delete()
-              def configmap = openshift.create("configmap", "${destApp}-config", "--from-file=./configuration/application-users.properties", "--from-file=./configuration/application-roles.properties" )
+              def configmap = openshift.create('configmap', "${destApp}-config", '--from-file=./configuration/application-users.properties', '--from-file=./configuration/application-roles.properties')
 
               // Deploy the inactive application.
               openshift.selector("dc", "${destApp}").rollout().latest();
