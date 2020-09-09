@@ -1,0 +1,7 @@
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/category/UnitTest.java
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/service/TaskResourceTest.java
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/TaskDaoTest.java
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/category/IntegrationTest.java
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/DefaultDeployment.java
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/service/UserResourceTest.java
+/home/alolivei-redhat.com/openshift-tasks/src/test/java/org/jboss/as/quickstarts/tasksrs/UserDaoTest.java

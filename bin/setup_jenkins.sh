@@ -32,14 +32,6 @@ COPY --from=builder /opt/app-root/src/skopeo/default-policy.json /etc/containers
 COPY --from=builder /opt/app-root/src/skopeo/skopeo /usr/bin\n
 USER 1001' --name=jenkins-agent-appdev -n ${GUID}-jenkins
 
-# Create Secret with credentials to access the private repository
-# You may hardcode your user id and password here because
-# this shell scripts lives in a private repository
-# Passing it from Jenkins would show it in the Jenkins Log
-
-oc create secret generic gitea-secret --from-literal=username=user --from-literal=password=password -n ${GUID}-jenkins
-oc set build-secret --source bc/tasks-pipeline gitea-secret -n ${GUID}-jenkins
-
 #Set correct permissions
 
 oc policy add-role-to-user edit system:serviceaccount:${GUID}-jenkins:jenkins -n ${GUID}-tasks-dev
@@ -51,6 +43,14 @@ oc policy add-role-to-group system:image-puller system:serviceaccounts ${GUID}-t
 # Make sure you use your secret to access the repository
 
 oc create -f ./manifests/tasks-bc-task-pipeline.yaml -n ${GUID}-jenkins
+
+# Create Secret with credentials to access the private repository
+# You may hardcode your user id and password here because
+# this shell scripts lives in a private repository
+# Passing it from Jenkins would show it in the Jenkins Log
+
+oc create secret generic gitea-secret --from-literal=username=user --from-literal=password=password -n ${GUID}-jenkins
+oc set build-secret --source bc/tasks-pipeline gitea-secret -n ${GUID}-jenkins
 
 # Set up ConfigMap with Jenkins Agent definition
 oc create -f ./manifests/agent-cm.yaml -n ${GUID}-jenkins

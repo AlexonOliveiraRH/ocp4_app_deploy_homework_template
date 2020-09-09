@@ -1,0 +1,6 @@
+projectKey=org.jboss.quickstarts.eap:tasks
+serverUrl=http://sonarqube-1bb5-sonarqube.apps.cluster-d9da.d9da.example.opentlc.com
+serverVersion=7.9.1.27448
+dashboardUrl=http://sonarqube-1bb5-sonarqube.apps.cluster-d9da.d9da.example.opentlc.com/dashboard?id=org.jboss.quickstarts.eap%3Atasks
+ceTaskId=AXQnFLS6kU6BEkqhbI9t
+ceTaskUrl=http://sonarqube-1bb5-sonarqube.apps.cluster-d9da.d9da.example.opentlc.com/api/ce/task?id=AXQnFLS6kU6BEkqhbI9t

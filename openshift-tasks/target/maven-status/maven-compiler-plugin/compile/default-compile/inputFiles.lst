@@ -1,0 +1,11 @@
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/com/openshift/helpers/Load.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/TaskDao.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/TaskDaoImpl.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/service/UserResource.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/com/openshift/service/DemoResource.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/User.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/UserDao.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/UserDaoImpl.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/Task.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/service/TaskResource.java
+/home/alolivei-redhat.com/openshift-tasks/src/main/java/org/jboss/as/quickstarts/tasksrs/model/Resources.java
