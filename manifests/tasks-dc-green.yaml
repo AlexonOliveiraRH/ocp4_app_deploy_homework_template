@@ -30,7 +30,7 @@ spec:
         env:
         - name: VERSION
           value: '${prodTag} (tasks-green)'
-        image: image-registry.openshift-image-registry.svc:5000/8175-tasks-dev/8175-tasks:0.0
+        image: image-registry.openshift-image-registry.svc:5000/GUID-tasks-dev/GUID-tasks:0.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
