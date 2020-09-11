@@ -256,7 +256,7 @@ pipeline {
             openshift.withProject("${prodProject}") {
               def route = openshift.selector("route/tasks").object()
               route.spec.to.name="${destApp}"
-              openshift.apply(route)tasks
+              openshift.apply(route)
               // Sleep 5 seconds
               sleep 5
             }
